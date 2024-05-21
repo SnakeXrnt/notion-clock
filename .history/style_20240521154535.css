@@ -3,7 +3,6 @@
     flex-direction: column;
     background-color: rgb(42, 41, 41);
     border: 2vw solid rgb(42, 41, 41);
-    width: 90vw;
 }
 
 .time {
@@ -35,7 +34,6 @@
 
 body {
     overflow-x: hidden;
-    display: flex;
 }
 
 @media screen and (max-width: 768px) {
@@ -48,7 +46,6 @@ body {
         width: 50vw;
         height: max-content;
         justify-content: space-evenly;
-        padding-bottom: 2vh;
     
     }
 

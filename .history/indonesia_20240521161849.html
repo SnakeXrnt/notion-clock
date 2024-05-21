@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indonesia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        h1, h2, h3 {
+            margin: 0px;
+            font-family: "Merriweather", serif;
+            font-weight: 400;
+            font-style: normal;
+            color: white;
+        }
+
+        h1 {
+            font-size: 10vw;
+        }
+
+
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            width: max-content;
+            height: max-content;
+            border: 6vw solid rgb(50, 50, 50);
+            background-color: rgb(50, 50, 50);
+            border-radius: 5vw;
+
+        }
+    </style>
+    <script>
+        function updateTime() {
+            const timeElement = document.querySelector('.time');
+            const dateElement = document.querySelector('.date');
+            const statusElement = document.querySelector('.status');
+
+            const now = new Date();
+            const options = { timeZone: 'Asia/Jakarta' };
+            const jakartaTime = new Date(now.toLocaleString('en-US', options));
+
+            const hours = jakartaTime.getHours();
+            const minutes = jakartaTime.getMinutes();
+            const seconds = jakartaTime.getSeconds();
+
+            timeElement.innerHTML = `${hours}:${minutes < 10 ? '0' : ''}${minutes}<span class="blink">:</span>${seconds < 10 ? '0' : ''}${seconds}`;
+
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const month = monthNames[jakartaTime.getMonth()];
+            const date = jakartaTime.getDate();
+            const year = jakartaTime.getFullYear();
+
+            dateElement.innerHTML = `${month}, ${date} ${year}`;
+
+            const hourOfDay = jakartaTime.getHours();
+            let status = '';
+            if (hourOfDay >= 5 && hourOfDay < 12) {
+                status = 'Morning';
+            } else if (hourOfDay >= 12 && hourOfDay < 15) {
+                status = 'Mid-day';
+            } else if (hourOfDay >= 15 && hourOfDay < 18) {
+                status = 'Afternoon';
+            } else if (hourOfDay >= 18 && hourOfDay < 21) {
+                status = 'Evening';
+            } else {
+                status = 'Mid-night';
+            }
+
+            statusElement.innerHTML = status;
+
+            // Toggle blink class
+            const blinkElements = document.querySelectorAll('.blink');
+            blinkElements.forEach(element => {
+                element.classList.toggle('hidden');
+            });
+        }
+
+        setInterval(updateTime, 1000); // Update every second
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h1>Indonesia</h1>
+        <br>
+        <h2>Time :</h2>
+        <h1 class="time"></h1>
+        <h2>Date :</h2>
+        <h1 class="date"></h1>
+        <h2>Status : </h2>
+        <h1 class="status"></h1>
+    
+    </div>
+</body>
+</html>
