@@ -1,0 +1,37 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(42, 41, 41)
+    margin: 2px;
+}
+
+.time {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.time .left, .right {
+    width: 25vw;
+    height: max-content;
+    justify-content: space-evenly;
+
+}
+
+.time .indonesia, .netherlands {
+    display: flex;
+}
+
+
+
+.time h1, h2, h3 {
+    margin: 0px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+}
+
+body {
+    overflow-x: hidden;
+}
