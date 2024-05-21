@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indonesia</title>
+    <title>Netherlands</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
@@ -17,14 +17,12 @@
         }
 
         h1 {
-            font-size: larger;
+            font-size: large;
             padding-bottom: 1vw;
         }
         h2 {
-            font-size: small;
+            font-size: 2vw;
         }
-
-
 
         .box {
             display: flex;
@@ -44,23 +42,23 @@
             const statusElement = document.querySelector('.status');
 
             const now = new Date();
-            const options = { timeZone: 'Asia/Jakarta' };
-            const jakartaTime = new Date(now.toLocaleString('en-US', options));
+            const options = { timeZone: 'Europe/Amsterdam' }; // Changed time zone to Amsterdam
+            const amsterdamTime = new Date(now.toLocaleString('en-US', options));
 
-            const hours = jakartaTime.getHours();
-            const minutes = jakartaTime.getMinutes();
-            const seconds = jakartaTime.getSeconds();
+            const hours = amsterdamTime.getHours();
+            const minutes = amsterdamTime.getMinutes();
+            const seconds = amsterdamTime.getSeconds();
 
             timeElement.innerHTML = `${hours}:${minutes < 10 ? '0' : ''}${minutes}<span class="blink">:</span>${seconds < 10 ? '0' : ''}${seconds}`;
 
             const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            const month = monthNames[jakartaTime.getMonth()];
-            const date = jakartaTime.getDate();
-            const year = jakartaTime.getFullYear();
+            const month = monthNames[amsterdamTime.getMonth()];
+            const date = amsterdamTime.getDate();
+            const year = amsterdamTime.getFullYear();
 
             dateElement.innerHTML = `${month}, ${date} ${year}`;
 
-            const hourOfDay = jakartaTime.getHours();
+            const hourOfDay = amsterdamTime.getHours();
             let status = '';
             if (hourOfDay >= 5 && hourOfDay < 12) {
                 status = 'Morning';
@@ -88,7 +86,7 @@
 </head>
 <body>
     <div class="box">
-        <h1>Indonesia</h1>
+        <h1>Netherlands</h1>
         <hr width="100%">
         <h2>Time :</h2>
         <h1 class="time"></h1>
